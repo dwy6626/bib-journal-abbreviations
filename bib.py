@@ -91,13 +91,9 @@ def proc(_fname):
             if _to_abbrev != _abbreviated:
                 print('{:60} -> {:30}'.format(_to_abbrev, _abbreviated))
 
-            if _starting_char == '{':
-                _f.write('{' + _abbreviated + '}')
-            else:
-                _f.write('"' + _abbreviated + '"')
-
+            _f.write(_starting_char + _abbreviated)
             _read_str = _read_str[_p:]
-
+        _f.write(_read_str)
 
 for fname in sys.argv[1:]:
     try:
